@@ -5,3 +5,10 @@ Weights for the network with different classes left out can be found here:
 https://drive.google.com/drive/folders/1J0bVwupYEhkbOWiL8JhsTuTZIdWWo8TM?usp=sharing
 
 The current version of this code is in a Jupyter notebook and the different functions are in different code cells. This was done to make sure it can be run on any machine, no matter the GPU, through Google Colab. 
+
+A few things to note:
+1. Always make sure the EXCLUDE_CLASS and model weights are the same class, otherwise the detector messess up
+2. The current models are trained on a CUDA backend, make sure you have a CUDA environment
+3. Check the remapped labels to make sure the classes are continuous (i.e. [0,1,2,3,4,5] instead of [0,1,2,4,5,6]. There is a print statement which will allow you to final check that this happened properly
+
+A final thing which might be helpful, is to put the initialization of the data loaders, detectors and models etc in their own code block so they won't have to be initialized every time you run an inference.
